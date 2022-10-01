@@ -1,0 +1,11 @@
+@import './config/reset';
+@import './config/variables';
+@import './elements/navigation';
+
+
+
+.container {
+    width: 1352px;
+    height: 100%;
+    margin: 0 auto;
+}

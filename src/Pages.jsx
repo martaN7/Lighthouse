@@ -22,11 +22,13 @@ function Signup() {
 
 function StartPage() {
     return (
-      <div>
-        <h1>StartPage</h1>
-        <div>
-            <Link to="/login">Log in</Link>
-            <Link to="/signup">Sign up</Link>
+      <div className='start-page'>
+        <div className='container start-page__container'>
+          <h1 className='start-page__title'>StartPage</h1>
+          <div>
+              <Link to="/login" className='start-page__button'>Log in</Link>
+              <Link to="/signup" className='start-page__button'>Sign up</Link>
+          </div>
         </div>
       </div>
     )
