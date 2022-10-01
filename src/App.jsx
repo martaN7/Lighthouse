@@ -1,11 +1,11 @@
+import { HashRouter, Link, NavLink, Outlet } from 'react-router-dom';
+import Pages from './Pages';
 
-function App() {
 
+export default function App() {
   return (
-    <div>
-      Hello World!
-    </div>
-  )
+    <HashRouter>
+      <Pages />
+    </HashRouter>
+  );
 }
-
-export default App;
