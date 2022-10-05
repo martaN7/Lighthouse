@@ -1,0 +1,16 @@
+.error__page {
+    width: 100%;
+}
+
+.error__page__img {
+    margin: 0 auto;
+    width: 600px;
+    height: 500px;
+    padding-top: 5%;
+
+    & img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+}

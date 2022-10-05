@@ -1,0 +1,179 @@
+.new__entry {
+    max-width: 100%;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    font-family: $font-text;
+    background: url('../boy_sunrise.png') right 0 top 0, url('../girl_meditation.png') bottom -100px left 0;
+    background-size: 30%;
+    background-repeat: no-repeat;
+
+
+    &__box {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 900px;
+        box-shadow: 1px 1px 20px rgba($color: #000000, $alpha: 0.5);
+        border-radius: 30px;
+        background-image: url(../flower_bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 30px;
+            right: 60px;
+            bottom: 30px;
+            left: 60px;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+    }
+
+    &__title {
+        margin-top: 20px;
+        font-family: $font-logo;
+        font-size: 3rem;
+        line-height: 6rem;
+        color: #011242;
+    }
+
+    &__mood__choice {
+        // width: 100%;
+        padding-top: 30px;
+
+        & p {
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+
+    &__moods {
+        display: flex;
+        gap: 40px;
+        padding-top: 20px;
+    }
+
+    &__mood {
+        text-align: center;
+
+        & button {
+            display: block;
+            margin: 10px auto;
+            padding: 7px;
+            border: 0;
+            background-color: #Ffff;
+            border-radius: 50%;
+            box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.7);
+        }
+
+        & i {
+            display: block;
+            font-size: 2.1rem;
+        }
+
+        & span {
+            font-size: 1.1rem;
+        }
+
+        &:hover {
+
+            & i {
+                color: #fff;
+            }
+
+            & .mood__button__amazing {
+                background-color:#0CB1FF;
+            }
+
+            & .mood__button__good {
+                background-color:#007DB8;
+            }
+
+            & .mood__button__meh {
+                background-color:#5C7B8A;
+            }
+
+            & .mood__button__bad {
+                background-color:#36505B;
+            }
+
+            & .mood__button__awful {
+                background-color:#282828;
+            }
+        }
+      
+    }
+
+    .emoji {
+
+        &__amazing {
+            color: #0CB1FF;
+        }
+
+        &__good{
+            color: #007DB8;
+        }
+
+        &__meh{
+            color: #5C7B8A;
+        }
+
+        &__bad{
+            color: #36505B;
+        }
+
+        &__awful{
+            color: #282828;
+        }
+    }
+    
+}
+
+
+.new__entry__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+
+    & span {
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        margin: 20px 0 40px 0;
+        border: 0;
+        color: #011242;
+        font-size: 1.4rem;
+        font-weight: 500;
+        padding: 10px 25px;
+        background-color: $color-yellow-darker;
+        border-radius: 25px;
+        box-shadow: 1px 0 10px rgba($color: #000000, $alpha: 0.5);
+
+        &:hover {
+            background: #F3A21C;
+            color: #fff;
+        }
+    }
+}
+
+.new__entry__img {
+    width: 200px;
+    height: 400px;
+}

@@ -25,6 +25,17 @@ export default function Navigation() {
                         <li>
                             <Link to="/home/practices" className='nav__link'>Practices</Link>
                         </li>
+                        <li className='nav__user'>
+                            <i className="fa-solid fa-user nav__user__icon"></i>
+                            <span className='nav__user__name'>Marta</span>
+                            <ul className='nav__user__options visible'>
+                                <li className='nav__user__option'>
+                                    Log out
+                                </li>
+                        </ul>
+                        </li>
+                        
+
                     </div>
                 </ul>
             </nav>

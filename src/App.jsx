@@ -1,5 +1,5 @@
 import { HashRouter, Link, NavLink, Outlet } from 'react-router-dom';
-import Pages from './Pages';
+import Pages from './components/Pages';
 import "./styles/main.scss";
 
 

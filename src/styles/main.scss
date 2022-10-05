@@ -1,11 +1,23 @@
 @import './config/reset';
 @import './config/variables';
 @import './elements/navigation';
+@import './elements/start_page';
+@import './elements/login_page';
+@import './elements/signup_page';
+@import './elements/home_page';
+@import './elements/new_entry';
+@import './elements/entries_page';
+@import './elements/single_entry_page';
+@import './elements/practices_page';
+@import './elements/stats_page';
+@import './elements/notfound_page';
 
-
+*{
+    font-family: $font-text;
+}
 
 .container {
-    width: 1352px;
+    max-width: 1352px;
     height: 100%;
     margin: 0 auto;
 }
