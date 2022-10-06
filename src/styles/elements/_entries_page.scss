@@ -14,8 +14,8 @@
     margin-bottom: 30px;
     left: 50%; 
     transform: translateX(-50%);
-    max-width: 100%;
-    height: 100vh;
+    width: 100%;
+    // height: 100vh;
     font-family: $font-text;
 
 
@@ -66,12 +66,23 @@
     }
 }
 
+.hover__container {
+    margin: 0 20px 50px 20px;
+
+    &:hover {
+        width: 750px;
+
+        & .entry__button__box {
+            display: block;
+        }
+    }
+
+}
+
 .entry {
 
     &__single {
         max-width: 600px;
-        max-height: 200px;
-        margin: 0 20px 50px 20px;
         border-radius: 15px;
         box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.5);
         display: flex;
@@ -79,20 +90,14 @@
         padding: 15px 15px 15px 5px;
         font-size: 1.2rem;
         background-color: rgba($color: #ffffff, $alpha: 0.5);
+        margin: 0 auto;
 
         &:hover {
             box-shadow: 1px 1px 15px rgba($color: #000000, $alpha: 0.7);
             cursor: pointer;
         }
-
-        &__visible {
-
-            & .entry__button{
-                display: block;
-            }
-        }
-
     }
+
 
     &__date {
         min-width: 20%;
@@ -127,6 +132,7 @@
         display: flex;
         flex-direction: column;
         padding-left: 20px;
+   
         
 
         &__title {
@@ -148,27 +154,38 @@
         }
     }
 
-    &__button {
-        display: none;
+    &__button__box {
         position: absolute;
         right:-70px;
         top:0;
+        display: none;
+    }
+
+    &__button {
+        display: block;
         border: 0;
         width: 45px;
         height: 45px;
+        margin: 0 auto;
         border-radius: 50%;
         color: #fff;
         box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.5);
 
-
+        &:hover {
+            box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.9);
+        }
     }
 }
 
 .button__edit {
     background-color: #F3A21C;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .button__delete {
     background-color: #f3351c;
-    top:60px;
 }

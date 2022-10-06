@@ -56,30 +56,30 @@
 
 .nav__user {
     color: #fff;
-    padding: 20px 60px 20px 35px;
     position: relative;
+    padding-left: 30px;
 
     &:hover {
         cursor: pointer;
 
-        & .nav__user__options {
+        & .nav__user__dropdown {
             display: block;
+            position: absolute;
+            top: 100%;
+            left: -5px;
         }
+
+        & .nav__user__dropdown .nav__user__options {
+            display: block;
+            margin-top: 21px;
+        }   
     }
 
     &__container {
-        position: absolute;
-        top: -80px;
-        right: 10px;
-        height: 200px;
-        padding-right: 20px;
-        padding-left: 20px;
         display: flex;
         flex-direction: column;
-        justify-content:center;
-        align-items:center;
+        align-items: center;
         gap: 10px;
-        // border: 1px solid blueviolet;
     }
 
     &__icon {
@@ -90,30 +90,31 @@
         font-size: 1rem;
     }
 
-    &__options {
+    &__dropdown {
         display: none;
-        position: absolute;
-        top: 67px;
-        left: 0;
+    }
+
+    &__options {
         background-color: $color-navy-blue;
-        padding: 10px 15px 10px 15px;
         box-shadow: 0 1px 10px rgba($color: rgb(3, 3, 3), $alpha: 0.5);
     
         &:hover {
             cursor: pointer;
             background-color: #053a77;
-            
         }
-    
+    }
+
+    &__option {
+        position: relative;
+        width: 100px;
+        padding: 10px;
+        text-align: center;
     }
 
     &__link {
         text-decoration: none;
+        
         color: #fff;
         font-size: 1.1rem;
-
     }
 }
-
-
-

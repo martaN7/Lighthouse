@@ -28,16 +28,19 @@ export default function Navigation() {
                         <li className='nav__user'>
                             <div className='nav__user__container'>
                                 <i className="fa-solid fa-user nav__user__icon"></i>
-                                <span className='nav__user__name'>Marta</span>   
+                                <span className='nav__user__name'>Marta</span>
+                            </div>                          
+                            
+                            <div className='nav__user__dropdown'>
+                                <ul className='nav__user__options'>
+                                    <li className='nav__user__option'>
+                                        <Link to="/" className='nav__user__link'>
+                                            Log out
+                                        </Link>
+                                    </li>
+                                </ul>
                             </div>
                             
-                            <ul className='nav__user__options'>
-                                <li className='nav__user__option'>
-                                    <Link to="/" className='nav__user__link'>
-                                        Log out
-                                    </Link>
-                                </li>
-                            </ul>
                         </li>
                         
 
