@@ -26,13 +26,18 @@ export default function Navigation() {
                             <Link to="/home/practices" className='nav__link'>Practices</Link>
                         </li>
                         <li className='nav__user'>
-                            <i className="fa-solid fa-user nav__user__icon"></i>
-                            <span className='nav__user__name'>Marta</span>
-                            <ul className='nav__user__options visible'>
+                            <div className='nav__user__container'>
+                                <i className="fa-solid fa-user nav__user__icon"></i>
+                                <span className='nav__user__name'>Marta</span>   
+                            </div>
+                            
+                            <ul className='nav__user__options'>
                                 <li className='nav__user__option'>
-                                    Log out
+                                    <Link to="/" className='nav__user__link'>
+                                        Log out
+                                    </Link>
                                 </li>
-                        </ul>
+                            </ul>
                         </li>
                         
 

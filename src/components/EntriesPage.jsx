@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box } from '@mui/material';
 
 export default function EntriesPage() {
+
+
   return (
     <>
     <div className='bg'></div>
@@ -14,7 +15,7 @@ export default function EntriesPage() {
                     <Link to="/home/new-entry" className='entries__button'>New entry</Link>
                 </div>
                 <div className='entries__list'>
-                    <div className='entry__single'>
+                    <div className='entry__single entry__single__visible'>
                         <div className='entry__date'>
                             <span className='entry__date__weekday'>Sun</span>
                             <span className='entry__date__day'>11</span>

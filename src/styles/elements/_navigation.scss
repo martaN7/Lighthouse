@@ -5,8 +5,6 @@
     box-shadow: 0 1px 10px rgba($color: rgb(3, 3, 3), $alpha: 0.5);
     font-family: $font-text;
 
-
-
     &__container {
         padding: 15px 0;
     }
@@ -30,6 +28,7 @@
     &__right{
         display: flex;
         align-items: center;
+        position: relative;
     }
 }
 
@@ -38,14 +37,11 @@
     text-decoration: none;
     padding-right: 25px;
     font-size: 1.25rem;
-    position: relative;
 
     &:hover {
         color: $color-yellow-logo;
-        
     }
     
-
     &__logo {
         font-family: $font-logo;
         text-decoration: none;
@@ -53,19 +49,15 @@
         color: $color-yellow-logo;
 
         &:hover {
-            text-shadow: 0 0 20px rgba($color: $color-yellow-logo, $alpha: 0.5);
+            text-shadow: 0 0 20px rgba($color: $color-yellow-logo, $alpha: 0.6);
         }
     }
 }
 
 .nav__user {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: #fff;
-    gap: 10px;
-    padding-left: 15px;
+    padding: 20px 60px 20px 35px;
+    position: relative;
 
     &:hover {
         cursor: pointer;
@@ -75,6 +67,21 @@
         }
     }
 
+    &__container {
+        position: absolute;
+        top: -80px;
+        right: 10px;
+        height: 200px;
+        padding-right: 20px;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        gap: 10px;
+        // border: 1px solid blueviolet;
+    }
+
     &__icon {
         font-size: 1.5rem;
     }
@@ -82,28 +89,31 @@
     &__name {
         font-size: 1rem;
     }
-}
 
-.nav__user__options {
-    display: none;
-    position: absolute;
-    top: 75px;
-    right: -40px;
-    background-color: $color-navy-blue;
-    box-shadow: 0 1px 10px rgba($color: rgb(3, 3, 3), $alpha: 0.5);
-
-    &:hover {
-        cursor: pointer;
-        background-color: #053a77;
-        
+    &__options {
+        display: none;
+        position: absolute;
+        top: 67px;
+        left: 0;
+        background-color: $color-navy-blue;
+        padding: 10px 15px 10px 15px;
+        box-shadow: 0 1px 10px rgba($color: rgb(3, 3, 3), $alpha: 0.5);
+    
+        &:hover {
+            cursor: pointer;
+            background-color: #053a77;
+            
+        }
+    
     }
 
+    &__link {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.1rem;
+
+    }
 }
 
-.nav__user__option {
-    padding: 10px 30px;
-    color: #fff;
-    font-size: 1.1rem;
-    
 
-}
+
