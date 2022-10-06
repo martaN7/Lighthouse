@@ -141,14 +141,13 @@
     
 }
 
-
 .new__entry__form {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 40px;
 
-    & span {
+    &__title {
         font-size: 1.3rem;
         font-weight: 600;
         text-align: center;
@@ -162,7 +161,73 @@
     }
 }
 
-.new__entry__img {
-    width: 200px;
-    height: 400px;
+.editor {
+    width: 700px;
+    margin: 10px 0;
+    
+
+}
+
+.ql-toolbar {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.ql-container {
+    height: 500px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.ql-editor {
+    background-color: #FBF8F3;
+    border-radius: 5px;
+
+    &:focus {
+        border: 2px solid #0077CE;
+    }
+}
+
+
+.ql-size-small{
+    font-size: 0.8rem;
+}
+
+.ql-size-large{
+    font-size: 1.5rem;
+}
+
+.ql-size-huge{
+    font-size: 2rem;
+}
+
+.ql-indent-{
+    &1 {
+        text-indent: 3rem;
+    }
+
+    &2 {
+        text-indent: 6rem;
+    }
+
+    &3 {
+        text-indent: 9rem;
+    }
+
+    &4 {
+        text-indent: 12rem;
+    }
+
+    &5 {
+        text-indent: 15rem;
+    }
+    &6 {
+        text-indent: 18rem;
+    }
+    &7 {
+        text-indent: 21rem;
+    }
+    &8 {
+        text-indent: 24rem;
+    }
 }

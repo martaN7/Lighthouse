@@ -1,7 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { TextField } from '@mui/material';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 
 export default function NewEntryPage() {
+
+  const [value, setValue] = useState('');
+  
+  const  modules  = {
+    toolbar: [
+        [{ font: [] }],
+        [{ size: []}],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        ["bold", "italic", "underline", "strike"],
+        [{ color: [] }, { background: [] }],
+        [{ script:  "sub" }, { script:  "super" }],
+        ["blockquote", "code-block"],
+        [{ list:  "ordered" }, { list:  "bullet" }],
+        [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
+        ["link"],
+        ["clean"],
+    ],
+  };
+
   return (
     <section className='new__entry'>
       <div className='container new__entry__container'>
@@ -49,7 +71,7 @@ export default function NewEntryPage() {
             </div>
 
             <form className='new__entry__form'>
-              <span>What's on your mind?</span>
+              <span className='new__entry__form_title'>What's on your mind?</span>
 
               <TextField 
                 id="outlined-basic" label="Title" 
@@ -57,11 +79,9 @@ export default function NewEntryPage() {
                 size='small' sx={{width: '500px', backgroundColor: '#FBF8F3'}}
               />
 
-              <TextField 
-                id="outlined-basic" label="Your entry" 
-                variant="outlined" margin='normal' multiline={true}
-                size='small' sx={{width: '700px', backgroundColor: '#FBF8F3'}}
-                rows='25'
+              <ReactQuill theme="snow" modules={modules} value={value} 
+              onChange={setValue} placeholder='Write something...' 
+              className='editor' 
               />
 
               <TextField 
@@ -75,6 +95,7 @@ export default function NewEntryPage() {
           </div>
         </div>
       </div>
+
     </section>
   )
 }
