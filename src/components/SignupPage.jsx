@@ -39,10 +39,9 @@ export default function SignupPage() {
                         helperText = 'Confirm your password'
                         size='small' sx={{width: '300px'}}
                     />
-
-                    <button type='button' className='signup__form__button'>
-                        <Link to="/home" className='signup__form__link'>Sign up!</Link>
-                    </button>
+                    <Link to="/home" className='signup__form__button'>
+                        Sign up!
+                    </Link>
                 </form>
             </div>
         </div>

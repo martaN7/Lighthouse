@@ -42,20 +42,8 @@
     }
 
     &__button {
-        border: 0;
-        color: #011242;
-        text-decoration: none;
-        font-size: 1.4rem;
-        font-weight: 500;
-        padding: 10px 25px;
-        background-color: $color-yellow-darker;
-        border-radius: 25px;
-        box-shadow: 1px 0 10px rgba($color: #000000, $alpha: 0.5);
+        @extend %button-yellow;
 
-        &:hover {
-            background: #F3A21C;
-            color: #fff;
-        }
     }
 
     &__list {

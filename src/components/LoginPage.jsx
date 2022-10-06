@@ -24,9 +24,9 @@ export default function LoginPage() {
                         helperText = 'Enter your password'
                         size='small' sx={{width: '300px'}}
                     />
-                    <button type='button' className='login__form__button'>
-                        <Link to="/home" className='login__form__link'>Log in</Link>
-                    </button>
+                    <Link to="/home" className='login__form__button'>
+                        Log in
+                    </Link>
                 </form>
             </div>
         </div>
