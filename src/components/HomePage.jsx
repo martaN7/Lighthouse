@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { supabase } from '../database/supabase';
 
 export default function HomePage() {
+
   return (
     <div className='home__page'>
         <div className='container home__page__container'>

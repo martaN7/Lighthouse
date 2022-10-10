@@ -1,7 +1,27 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { useAuth } from '../components/Auth/Auth';
+import { supabase } from '../database/supabase';
 
 export default function Navigation() {
+
+    // Get current user and signOut function from context
+   const { user, signOut } = useAuth()
+   const navigateTo = useNavigate();
+   
+  //  console.log(user);
+
+  async function handleSignOut() {
+     // Ends user session
+     await signOut();
+
+     // Redirects the user to Login page
+     navigateTo('/');
+     console.log('wylogowano');
+     console.log(user);
+  }
+
+
   return (
     <>
     <header className='header'>
@@ -33,10 +53,10 @@ export default function Navigation() {
                             
                             <div className='nav__user__dropdown'>
                                 <ul className='nav__user__options'>
-                                    <li className='nav__user__option'>
-                                        <Link to="/" className='nav__user__link'>
+                                    <li className='nav__user__option' onClick={handleSignOut}>
+                                        <span to="/" className='nav__user__link'>
                                             Log out
-                                        </Link>
+                                        </span>
                                     </li>
                                 </ul>
                             </div>

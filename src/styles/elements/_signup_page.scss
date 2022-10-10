@@ -1,4 +1,5 @@
 .signup__page {
+    font-family: $font-text;
     width: 100%;
     height: 100vh;
 
@@ -42,7 +43,33 @@
 
     &__button {
         @extend %button-yellow;
+        border: none;
         margin-top: 20px;
     }
 
+}
+
+.signup__display__error {
+    margin-top: 30px;
+    color: rgb(211, 0, 0);
+}
+
+.signup__name {
+
+    &__page {
+        margin: 0 auto;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        font-family: $font-logo;
+        font-size: 4.5rem;
+        margin-bottom: 20px;
+    }
 }

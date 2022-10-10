@@ -12,6 +12,9 @@ import PracticesPage from './PracticesPage';
 import StatsPage from './StatsPage';
 import NotFoundPage from './NotFoundPage';
 
+import ProtectedRoute from '../components/Auth/ProtectedRoute';
+
+
 function Login() {
     return (
         <div className='login__page'>
@@ -105,7 +108,7 @@ export default function Pages() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Navigation />}>
             <Route index element={<StartPage />} />
-            <Route path="home" >
+            <Route path="home" element={<ProtectedRoute />} >
               <Route index element={<Home />} />
               <Route path="new-entry" element={<NewEntry />} />
               <Route path="edit-entry" element={<EditEntry/>} />
