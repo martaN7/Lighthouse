@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/Auth/Auth';
-import { supabase } from '../database/supabase';
 
 export default function Navigation() {
 
     // Get current user and signOut function from context
    const { user, signOut } = useAuth()
    const navigateTo = useNavigate();
-   
-  //  console.log(user);
+
 
   async function handleSignOut() {
      // Ends user session
@@ -35,6 +33,8 @@ export default function Navigation() {
                     <li>
                         <img src='../lighthouse.png' className='nav__links__img'/>
                     </li>
+                    {user && (
+                    
                     <div className='nav__links__right'>
                         <li>
                             <Link to="/home/entries" className='nav__link'>Entries</Link>
@@ -48,7 +48,7 @@ export default function Navigation() {
                         <li className='nav__user'>
                             <div className='nav__user__container'>
                                 <i className="fa-solid fa-user nav__user__icon"></i>
-                                <span className='nav__user__name'>Marta</span>
+                                <span className='nav__user__name'>{user.user_metadata.name}</span>
                             </div>                          
                             
                             <div className='nav__user__dropdown'>
@@ -60,11 +60,10 @@ export default function Navigation() {
                                     </li>
                                 </ul>
                             </div>
-                            
                         </li>
-                        
-
                     </div>
+                    )}
+
                 </ul>
             </nav>
         </div>

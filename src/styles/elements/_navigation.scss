@@ -23,6 +23,7 @@
         height: 4.5rem;
         position: absolute;
         bottom: -19px;
+        left: 600px;
     }
 
     &__right{
@@ -57,7 +58,7 @@
 .nav__user {
     color: #fff;
     position: relative;
-    padding-left: 30px;
+    // padding-left: 30px;
 
     &:hover {
         cursor: pointer;
