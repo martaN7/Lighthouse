@@ -7,6 +7,7 @@ export default function Navigation() {
     // Get current user and signOut function from context
    const { user, signOut } = useAuth()
    const navigateTo = useNavigate();
+   const userName = user?.user_metadata.name;
 
 
   async function handleSignOut() {
@@ -33,7 +34,7 @@ export default function Navigation() {
                     <li>
                         <img src='../lighthouse.png' className='nav__links__img'/>
                     </li>
-                    {user && (
+                    {userName && (
                     
                     <div className='nav__links__right'>
                         <li>
