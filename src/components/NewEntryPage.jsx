@@ -6,7 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 
 export default function NewEntryPage() {
 
-  const [value, setValue] = useState('');
+  const [userNote, setUserNote] = useState('');
   
   const  modules  = {
     toolbar: [
@@ -23,6 +23,26 @@ export default function NewEntryPage() {
         ["clean"],
     ],
   };
+
+
+  const [tags, setTags] = useState([]);
+
+	const removeTags = indexToRemove => {
+		setTags([...tags.filter((_, index) => index !== indexToRemove)]);
+	};
+
+	const addTags = e => {
+		if (e.target.value !== "") {
+			setTags(prev => [...prev, e.target.value]);
+      console.log(e.target.value);		
+		}
+	};
+
+  const clearInput = (e) => {
+    e.target.value = "";
+  }
+
+  
 
   return (
     <section className='new__entry'>
@@ -79,16 +99,24 @@ export default function NewEntryPage() {
                 size='small' sx={{width: '500px', backgroundColor: '#FBF8F3'}}
               />
 
-              <ReactQuill theme="snow" modules={modules} value={value} 
-              onChange={setValue} placeholder='Write something...' 
-              className='editor' 
+              <ReactQuill theme="snow" modules={modules} value={userNote} 
+              onChange={setUserNote} placeholder='Write something...' 
+              className='new__entry__editor' 
               />
 
-              <TextField 
-                id="outlined-basic" label="Tags" 
-                variant="outlined" margin='normal'
-                size='small' sx={{width: '500px', backgroundColor: '#FBF8F3'}}
-              />
+              <div className='tags__input__container'>
+                  {tags?.map((tag, index) => (
+                    <div key={index} className="tag__single">
+                      <span className='tag__title'>{tag}</span>
+                      <span className='tag__icon-close' onClick={() => removeTags(index)}>
+                        x
+                      </span>
+                    </div>
+                  ))}
+                <input type='text' className='tags__input' placeholder='Enter tags'
+                onKeyDown={e => e.key === "Enter" ? addTags(e) : null} 
+                onKeyUp={e => e.key === "Enter" ? clearInput(e): null}/>
+              </div>
 
               <button type='button' className='new__entry__form__button'>Save</button>
             </form>
