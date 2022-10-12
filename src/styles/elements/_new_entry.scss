@@ -173,12 +173,10 @@
 	flex-wrap: wrap;
     margin-top: 10px;
 	min-height: 48px;
-    // max-height: 100px;
 	width: 480px;
 	padding: 0 8px;
 	border: 1px solid #C1BFBB;
 	border-radius: 6px;
-    // overflow: scroll;
     position: relative;
     background-color: #FFF;
 
@@ -281,19 +279,6 @@
     &:focus {
         border: 2px solid #0077CE;
     }
-}
-
-
-.ql-size-small{
-    font-size: 0.8rem;
-}
-
-.ql-size-large{
-    font-size: 1.5rem;
-}
-
-.ql-size-huge{
-    font-size: 2rem;
 }
 
 

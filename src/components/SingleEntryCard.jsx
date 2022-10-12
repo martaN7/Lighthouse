@@ -6,8 +6,9 @@ import { supabase } from '../database/supabase';
 export default function SingleEntryCard({entryData, handleDelete}) {
 
 
-    const {mood, title, entry, tags, date_created, id, day_created, week_day_created, month_created, color} = entryData;
+    const {title, entry, date_created, id, day_created, week_day_created, month_created, color} = entryData;
     const myText = entry.replace(/<[^>]+>/g, '').slice(0,300);
+
 
     const navigateTo = useNavigate();
 

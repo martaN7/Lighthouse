@@ -31,6 +31,7 @@ export default function EditEntryPage() {
             .select()
             .eq('id', id)
             .single();
+
             if (error){
               throw error;
               navigateTo('/home/entries', {replace: true});
@@ -38,6 +39,7 @@ export default function EditEntryPage() {
 
             if(data){
                 setMood(data.mood);
+                setColorStyle(data.color);
                 setTitle(data.title);
                 setUserEntry(data.entry);
                 setTags(data.tags);
