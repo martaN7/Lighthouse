@@ -163,152 +163,75 @@
 
 
 
-.tags__input__container {
-    display: flex;
-	align-items: flex-start;
-	flex-wrap: wrap;
-    margin-top: 10px;
-	min-height: 48px;
-    // max-height: 100px;
-	width: 480px;
-	padding: 0 8px;
-	border: 1px solid #C1BFBB;
-	border-radius: 6px;
-    // overflow: scroll;
-    position: relative;
-    background-color: #FBF8F3;
+// .tags__input__container {
+//     display: flex;
+// 	align-items: flex-start;
+// 	flex-wrap: wrap;
+//     margin-top: 10px;
+// 	min-height: 48px;
+//     // max-height: 100px;
+// 	width: 480px;
+// 	padding: 0 8px;
+// 	border: 1px solid #C1BFBB;
+// 	border-radius: 6px;
+//     // overflow: scroll;
+//     position: relative;
+//     background-color: #FBF8F3;
 
-    &:hover {
-        border: 1px solid black;
-    }
+//     &:hover {
+//         border: 1px solid black;
+//     }
 
-    &:focus-within {
-        border: 2px solid  rgb(1, 98, 209);
-    }
-}
+//     &:focus-within {
+//         border: 2px solid  rgb(1, 98, 209);
+//     }
+// }
 
-.tags__input {
-    flex: 1;
-    border: none;
-    height: 46px;
-    font-size: 14px;
-    padding: 4px 0 0 0;
-    background-color: #FBF8F3;
+// .tags__input {
+//     flex: 1;
+//     border: none;
+//     height: 46px;
+//     font-size: 14px;
+//     padding: 4px 0 0 0;
+//     background-color: #FBF8F3;
 
-    &:focus {
-        outline: transparent;
-    }
-}
+//     &:focus {
+//         outline: transparent;
+//     }
+// }
 
-.tag__single {
-    width: auto;
-	height: 32px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-    gap: 10px;
-	color: #fff;
-	padding: 0 8px;
-	font-size: 14px;
-	list-style: none;
-	border-radius: 6px;
-	margin: 8px 8px 8px 0;
-	background: rgb(1, 98, 209);
-}
+// .tag__single {
+//     width: auto;
+// 	height: 32px;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+//     gap: 10px;
+// 	color: #fff;
+// 	padding: 0 8px;
+// 	font-size: 14px;
+// 	list-style: none;
+// 	border-radius: 6px;
+// 	margin: 8px 8px 8px 0;
+// 	background: rgb(1, 98, 209);
+// }
 
-.tag__title {
-    margin-top: 3px;
-}
+// .tag__title {
+//     margin-top: 3px;
+// }
 
-.tag__icon-close {
-    display: block;
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    margin-left: 8px;
-    color: rgb(1, 98, 209);
-    border-radius: 50%;
-    background: #fff;
-    cursor: pointer;
-}
+// .tag__icon-close {
+//     display: block;
+//     width: 16px;
+//     height: 16px;
+//     line-height: 16px;
+//     text-align: center;
+//     font-size: 14px;
+//     font-weight: 500;
+//     margin-left: 8px;
+//     color: rgb(1, 98, 209);
+//     border-radius: 50%;
+//     background: #fff;
+//     cursor: pointer;
+// }
 
-
-
-
-//React-Quill Classes
-
-.new__entry__editor {
-    width: 700px;
-    margin: 10px 0;
-}
-
-.ql-toolbar {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.ql-container {
-    height: 500px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.ql-editor {
-    background-color: #FBF8F3;
-    border-radius: 5px;
-
-    &:hover {
-        border: 1px solid black;
-    }
-
-    &:focus {
-        border: 2px solid #0077CE;
-    }
-}
-
-
-.ql-size-small{
-    font-size: 0.8rem;
-}
-
-.ql-size-large{
-    font-size: 1.5rem;
-}
-
-.ql-size-huge{
-    font-size: 2rem;
-}
-
-.ql-indent-{
-    &1 {
-        text-indent: 3rem;
-    }
-
-    &2 {
-        text-indent: 6rem;
-    }
-
-    &3 {
-        text-indent: 9rem;
-    }
-
-    &4 {
-        text-indent: 12rem;
-    }
-
-    &5 {
-        text-indent: 15rem;
-    }
-    &6 {
-        text-indent: 18rem;
-    }
-    &7 {
-        text-indent: 21rem;
-    }
-    &8 {
-        text-indent: 24rem;
-    }
-}

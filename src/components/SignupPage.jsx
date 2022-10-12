@@ -31,7 +31,7 @@ export default function SignupPage() {
    
         if(!email.match(validRegex)){
             setFormError('Invalid e-mail address!');
-        }else if (!password.match(passwordConfirm)){
+        }else if (password !== passwordConfirm){
             setFormError(`Passwords don't match!`);
         }else if (!email || !password || !passwordConfirm){
             setFormError('Please fill in all fields correctly');
@@ -68,9 +68,9 @@ export default function SignupPage() {
           alert('error with name');
           console.log(error.message);
           console.log(error.error_description);
-    
-    
-        } else {
+        } 
+        
+        if (user) {
           navigateTo('/home');
           console.log(user);
           console.log(user.user_metadata.name);

@@ -73,7 +73,7 @@
             margin: 10px auto;
             padding: 7px;
             border: 0;
-            background-color: #Ffff;
+            background-color: #fff;
             border-radius: 50%;
             box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.7);
         }
@@ -137,6 +137,10 @@
         &__awful{
             color: #282828;
         }
+
+        &__clicked {
+            color: #fff;
+        }
     }
     
 }
@@ -176,7 +180,7 @@
 	border-radius: 6px;
     // overflow: scroll;
     position: relative;
-    background-color: #FBF8F3;
+    background-color: #FFF;
 
     &:hover {
         border: 1px solid black;
@@ -193,7 +197,7 @@
     height: 46px;
     font-size: 14px;
     padding: 4px 0 0 0;
-    background-color: #FBF8F3;
+    background-color: #FFF;
 
     &:focus {
         outline: transparent;
@@ -235,6 +239,16 @@
     cursor: pointer;
 }
 
+.new__entry__error {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: $color-error;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 15px;
+    background-color: rgb(255, 202, 202);
+}
+
 
 
 
@@ -257,7 +271,7 @@
 }
 
 .ql-editor {
-    background-color: #FBF8F3;
+    background-color: #Fff;
     border-radius: 5px;
 
     &:hover {
@@ -282,33 +296,4 @@
     font-size: 2rem;
 }
 
-.ql-indent-{
-    &1 {
-        text-indent: 3rem;
-    }
 
-    &2 {
-        text-indent: 6rem;
-    }
-
-    &3 {
-        text-indent: 9rem;
-    }
-
-    &4 {
-        text-indent: 12rem;
-    }
-
-    &5 {
-        text-indent: 15rem;
-    }
-    &6 {
-        text-indent: 18rem;
-    }
-    &7 {
-        text-indent: 21rem;
-    }
-    &8 {
-        text-indent: 24rem;
-    }
-}

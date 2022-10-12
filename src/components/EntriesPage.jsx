@@ -1,7 +1,35 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../components/Auth/Auth';
+import { supabase } from '../database/supabase';
+import SingleEntryPreview from './SingleEntryPreview';
 
 export default function EntriesPage() {
+
+    const [fetchError, setFetchError] = useState(null);
+    const [userEntries, setUserEntries] = useState([]);
+    const {user} = useAuth();
+
+    useEffect(() => {
+        const fetchEntries = async () => {
+            let { data: UserEntries, error } = await supabase
+            .from('UserEntries')
+            .select("*")
+            .eq('user_id', user.id);
+
+            if (error){
+                console.log(error);
+            }
+            if(UserEntries){
+                setUserEntries(UserEntries);
+                console.log(typeof UserEntries);
+            }
+
+        }
+        fetchEntries();
+    }, []);
 
 
   return (
@@ -15,60 +43,12 @@ export default function EntriesPage() {
                     <Link to="/home/new-entry" className='entries__button'>New entry</Link>
                 </div>
                 <div className='entries__list'>
-
-                    <div className='hover__container'>
-                        <div className='entry__single'>
-                            <div className='entry__date'>
-                                <span className='entry__date__weekday'>Sun</span>
-                                <span className='entry__date__day'>11</span>
-                                <span className='entry__date__month'>March</span>
-
-                            </div>
-                            <div className='entry__content'>
-                                <h4 className='entry__content__title'>Lorem ipsum</h4>
-                                <span className='entry__content__date'>11/03/2022</span>
-                                <p className='entry__content__text'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe ipsam itaque vel ad eaque modi nesciunt nemo, libero illum accusantium eligendi animi ex deleniti voluptate consequuntur odit, ratione assumenda numquam commodi aut accusamus similique omnis recusandae! Aliquid tenetur placeat officiis.</p>
-                            </div>
-                            <div className='entry__button__box'>
-                                <Link to="/home/edit-entry" className='entry__button button__edit'>
-                                    <i className="fa-solid fa-pen"></i>
-                                </Link>
-                                <button className='entry__button button__delete'>
-                                    <i className="fa-solid fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='hover__container'>
-                        <div className='entry__single'>
-                            <div className='entry__date'>
-                                <span className='entry__date__weekday'>Sun</span>
-                                <span className='entry__date__day'>11</span>
-                                <span className='entry__date__month'>March</span>
-
-                            </div>
-                            <div className='entry__content'>
-                                <h4 className='entry__content__title'>Lorem ipsum</h4>
-                                <span className='entry__content__date'>11/03/2022</span>
-                                <p className='entry__content__text'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe ipsam itaque vel ad eaque modi nesciunt nemo, libero illum accusantium eligendi animi ex deleniti voluptate consequuntur odit, ratione assumenda numquam commodi aut accusamus similique omnis recusandae! Aliquid tenetur placeat officiis.</p>
-                            </div>
-                            <div className='entry__button__box'>
-                                <Link to="/home/edit-entry" className='entry__button button__edit'>
-                                    <i className="fa-solid fa-pen"></i>
-                                </Link>
-                                <button className='entry__button button__delete'>
-                                    <i className="fa-solid fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                   
-
-                    
-
-                    
+                    {userEntries.length === 0 && <p>You have no entries yet</p>}
+                    {userEntries && (
+                        userEntries.map((userEntry) => {
+                            return <SingleEntryPreview key={userEntry.id} entryData={userEntry}/>
+                        })
+                    )}                    
                 </div>
             </div>
         </div>
