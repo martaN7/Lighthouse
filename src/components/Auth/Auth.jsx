@@ -16,20 +16,17 @@ export function AuthProvider({ children }) {
       const session = supabase.auth.session();
   
       setUser(session?.user ?? null); //Nullish coalescing operator - zwraca prawą stronę, jeśli lewa to null/undefined
+      console.log(user);
       setLoading(false);
   
       // Listen for changes on auth state (logged in, signed out, etc.)
-      const { data: listener } = supabase.auth.onAuthStateChange(
+      const { data } = supabase.auth.onAuthStateChange(
         async (event, session) => {
           
           setUser(session?.user ?? null);
           setLoading(false);
         }
       )
-  
-      return () => {
-        listener?.unsubscribe();
-      }
     }, [])
   
     // Will be passed down to Signup, Login and Dashboard components

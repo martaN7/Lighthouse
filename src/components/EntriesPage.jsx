@@ -4,7 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../components/Auth/Auth';
 import { supabase } from '../database/supabase';
-import SingleEntryPreview from './SingleEntryPreview';
+import SingleEntryCard from './SingleEntryCard';
 
 export default function EntriesPage() {
 
@@ -24,7 +24,6 @@ export default function EntriesPage() {
             }
             if(UserEntries){
                 setUserEntries(UserEntries);
-                console.log(typeof UserEntries);
             }
 
         }
@@ -46,7 +45,7 @@ export default function EntriesPage() {
                     {userEntries.length === 0 && <p>You have no entries yet</p>}
                     {userEntries && (
                         userEntries.map((userEntry) => {
-                            return <SingleEntryPreview key={userEntry.id} entryData={userEntry}/>
+                            return <SingleEntryCard key={userEntry.id} entryData={userEntry}/>
                         })
                     )}                    
                 </div>

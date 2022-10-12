@@ -115,51 +115,43 @@ export default function NewEntryPage() {
 
     if (!mood){
       setEntryError('Choose your mood!');
-    }else if (!title || !userEntry){
-      setEntryError('Title and entry fields cannot be empty!');
-    }else {
-      setEntryError('');
-      console.log(`mood: ${mood},
-      title: ${title},
-      entry: ${userEntry},
-      tags: ${tags}
-      userId: ${user.id},
-      date: ${createdDate},
-      `);
-
-      try {
-        const { data, error } = await supabase
-        .from('UserEntries')
-        .insert([
-          { 
-            user_id: user.id,
-            mood: mood,
-            title: title, 
-            entry: userEntry,
-            tags: tags,
-            date_created: createdDate,
-            day_created: dayNumber,
-            week_day_created: weekdayName,
-            month_created: monthName,
-            color: colorStyle,
-          },
-        ]);
-
-        if(data){
-          console.log(data);
-          navigateTo('/home/entries');
-        }
-        if(error){
-          console.log(error);
-        }
-
-      }catch(error){
-        console.log(`Błąd ${error}`);
-      }
-      
-
+      return
     }
-   
+    if (!title || !userEntry){
+      setEntryError('Title and entry fields cannot be empty!');
+      return
+    }
+    
+    try {
+      const { data, error } = await supabase
+      .from('UserEntries')
+      .insert([
+        { 
+          user_id: user.id,
+          mood: mood,
+          title: title, 
+          entry: userEntry,
+          tags: tags,
+          date_created: createdDate,
+          day_created: dayNumber,
+          week_day_created: weekdayName,
+          month_created: monthName,
+          color: colorStyle,
+        },
+      ]);
+
+      if(data){
+        setEntryError('');
+        navigateTo('/home/entries', {replace: true});
+      }
+      if(error){
+        setEntryError('Problem saving entry');
+        console.log(error);
+      }
+
+    }catch(error){
+      setEntryError('Problem saving entry');
+    }
   }
 
 

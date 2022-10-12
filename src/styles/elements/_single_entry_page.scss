@@ -1,17 +1,21 @@
-.display__entry__text.ql-editor{
+.display__entry__text.ql-editor {
+    margin: 0;
+    padding: 0;
     background: none;
+
+    &:focus{
+        border: none;
+    }
 
     &:hover{
         border: none;
     }
 
-    &:focus{
-        border: none;
-    }
 }
 
 .display__entry {
     max-width: 100%;
+   min-height: calc(100vh - 220px);
     padding-top: 80px;
     padding-bottom: 50px;
     font-family: $font-text;
@@ -158,7 +162,12 @@
 }
 
 .display__entry__prompt {
-    margin:30px 0 0 50px;
+    margin:40px 0 0 50px;
+    color: $color-error;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 15px;
+    background-color: rgb(255, 202, 202);
 }
 
 .display__tags__input__container {

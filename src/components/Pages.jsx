@@ -111,7 +111,7 @@ export default function Pages() {
             <Route path="home" element={<ProtectedRoute />} >
               <Route index element={<Home />} />
               <Route path="new-entry" element={<NewEntry />} />
-              <Route path="edit-entry" element={<EditEntry/>} />
+              <Route path="edit-entry/:id" element={<EditEntry/>} />
               <Route path="entry/:id" element={<SingleEntry />} />
               <Route path="entries" element={<Entries />} />
               <Route path="stats" element={<Statistics />} />

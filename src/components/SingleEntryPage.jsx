@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { TextField } from '@mui/material';
 import { supabase } from '../database/supabase';
 
 export default function SingleEntryPage() {
@@ -52,7 +51,10 @@ export default function SingleEntryPage() {
 
     }, [id, navigateTo]);
 
-
+    const editEntry= (e) => {
+        e.stopPropagation();
+        navigateTo('/home/edit-entry/' + id);
+    }
 
 
   return (
@@ -73,9 +75,9 @@ export default function SingleEntryPage() {
                                 {mood === 'awful' && <i className="fa-regular fa-face-tired emoji__clicked"/>}
                             </div>
                             <div className='display__entry__buttons'>
-                                <Link to="/home/edit-entry" className='display__entry__button display__button__edit'>
+                                <button onClick={e => editEntry(e)} className='display__entry__button display__button__edit'>
                                     <i className="fa-solid fa-pen"></i>
-                                </Link>
+                                </button>
                                 <button className='display__entry__button display__button__delete'>
                                         <i className="fa-solid fa-trash"></i>
                                 </button>

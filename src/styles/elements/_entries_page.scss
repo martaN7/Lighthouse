@@ -1,16 +1,13 @@
-.display__entry.ql-editor {
-    margin: 0;
-    padding: 0;
+.entry__content__text.ql-editor{
     background: none;
-
-    &:focus{
-        border: none;
-    }
 
     &:hover{
         border: none;
     }
 
+    &:focus{
+        border: none;
+    }
 }
 
 .bg {
