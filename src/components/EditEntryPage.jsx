@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../database/supabase';
 import { TextField } from '@mui/material';
-import {useAuth} from '../components/Auth/Auth';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 

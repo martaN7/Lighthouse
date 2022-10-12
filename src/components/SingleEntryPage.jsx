@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../database/supabase';
 
 export default function SingleEntryPage() {
@@ -32,7 +32,6 @@ export default function SingleEntryPage() {
                 }
 
                 if(data){
-                    console.log(data);
                     setEntryData(data);
                     setMood(data.mood);
                     setTags(data.tags);
@@ -51,9 +50,33 @@ export default function SingleEntryPage() {
 
     }, [id, navigateTo]);
 
+    //edit entry
     const editEntry= (e) => {
         e.stopPropagation();
         navigateTo('/home/edit-entry/' + id);
+    }
+
+    //delete entry
+    const deleteEntry = async () => {
+
+        try {
+            const { data, error } = await supabase
+            .from('UserEntries')
+            .delete()
+            .eq('id', id);
+
+            if(error){
+                console.log(error);
+            }
+            if(data){
+                navigateTo('/home/entries');
+            }
+
+        }catch (error){
+            console.log(error);
+
+        }
+        
     }
 
 
@@ -78,7 +101,7 @@ export default function SingleEntryPage() {
                                 <button onClick={e => editEntry(e)} className='display__entry__button display__button__edit'>
                                     <i className="fa-solid fa-pen"></i>
                                 </button>
-                                <button className='display__entry__button display__button__delete'>
+                                <button onClick={deleteEntry} className='display__entry__button display__button__delete'>
                                         <i className="fa-solid fa-trash"></i>
                                 </button>
                             </div>

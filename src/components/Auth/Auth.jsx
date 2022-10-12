@@ -16,7 +16,6 @@ export function AuthProvider({ children }) {
       const session = supabase.auth.session();
   
       setUser(session?.user ?? null); //Nullish coalescing operator - zwraca prawą stronę, jeśli lewa to null/undefined
-      console.log(user);
       setLoading(false);
   
       // Listen for changes on auth state (logged in, signed out, etc.)

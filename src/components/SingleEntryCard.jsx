@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import 'react-quill/dist/quill.snow.css';
-import ReactQuill from 'react-quill';
-import { useScrollTrigger } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '../database/supabase';
 
 
-export default function SingleEntryCard({entryData}) {
+export default function SingleEntryCard({entryData, handleDelete}) {
 
 
     const {mood, title, entry, tags, date_created, id, day_created, week_day_created, month_created, color} = entryData;
@@ -23,6 +21,26 @@ export default function SingleEntryCard({entryData}) {
         navigateTo('/home/edit-entry/' + id);
     }
 
+    const deleteEntry = async (e) => {
+        e.stopPropagation();
+
+        try {
+            const { data, error } = await supabase
+            .from('UserEntries')
+            .delete()
+            .eq('id', id);
+
+            if(error){
+                console.log(error);
+            }
+            if(data){
+                handleDelete(id);
+            }
+
+        }catch (error){
+            console.log(error);
+        }
+    }
 
   return (
     <div className='hover__container' onClick={(e) => displayEntry(e)}>
@@ -46,7 +64,7 @@ export default function SingleEntryCard({entryData}) {
                 <button onClick={e => editEntry(e)} className='entry__button button__edit'>
                     <i className="fa-solid fa-pen" />
                 </button>
-                <button className='entry__button button__delete'>
+                <button onClick={e => deleteEntry(e)} className='entry__button button__delete'>
                     <i className="fa-solid fa-trash" />
                 </button>
             </div>
