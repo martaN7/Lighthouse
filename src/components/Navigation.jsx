@@ -43,9 +43,6 @@ export default function Navigation() {
                         <li>
                             <Link to="/home/stats" className='nav__link'>Statistics</Link>
                         </li>
-                        <li>
-                            <Link to="/home/practices" className='nav__link'>Practices</Link>
-                        </li>
                         <li className='nav__user'>
                             <div className='nav__user__container'>
                                 <i className="fa-solid fa-user nav__user__icon"></i>

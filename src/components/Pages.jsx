@@ -8,7 +8,6 @@ import NewEntryPage from './NewEntryPage';
 import EntriesPage from './EntriesPage'
 import EditEntryPage from './EditEntryPage';
 import SingleEntryPage from './SingleEntryPage';
-import PracticesPage from './PracticesPage';
 import StatsPage from './StatsPage';
 import NotFoundPage from './NotFoundPage';
 
@@ -47,11 +46,6 @@ function StartPage() {
     )
 }
 
-function Practises() {
-    return (
-      <PracticesPage />
-    )
-}
 
 function Entries() {
     return (
@@ -115,7 +109,6 @@ export default function Pages() {
               <Route path="entry/:id" element={<SingleEntry />} />
               <Route path="entries" element={<Entries />} />
               <Route path="stats" element={<Statistics />} />
-              <Route path="practices" element={<Practises />} />
             </Route>
           </Route>
         <Route path="*" element={<Navigate replace to="/404" />} />
