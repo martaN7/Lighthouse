@@ -63,6 +63,10 @@
         &:hover {
             text-shadow: 0 0 20px rgba($color: $color-yellow-logo, $alpha: 0.6);
         }
+
+        &:focus {
+            outline: none;
+        }
     }
 }
 
