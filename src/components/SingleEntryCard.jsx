@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../database/supabase';
 
@@ -9,11 +9,10 @@ export default function SingleEntryCard({entryData, handleDelete}) {
     const {title, entry, date_created, id, day_created, week_day_created, month_created, color} = entryData;
     const myText = entry.replace(/<[^>]+>/g, '').slice(0,300);
 
-
     const navigateTo = useNavigate();
 
 
-    const displayEntry = (e) => {
+    const displayEntry = () => {
         navigateTo('/home/entry/' + id);
     }
 
@@ -44,7 +43,7 @@ export default function SingleEntryCard({entryData, handleDelete}) {
     }
 
   return (
-    <div className='hover__container' onClick={(e) => displayEntry(e)}>
+    <div className='hover__container' onClick={displayEntry}>
         <div className='entry__single' >
             <div className='entry__date'>
                 <span className='entry__date__weekday'>{week_day_created.slice(0,3)}</span>

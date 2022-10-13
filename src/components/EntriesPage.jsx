@@ -15,32 +15,38 @@ export default function EntriesPage() {
 
     const [showMood, setShowMood] = useState('');
 
-
     const {user} = useAuth();
-
-    const fetchEntries = async () => {
-        let { data: UserEntries, error } = await supabase
-        .from('UserEntries')
-        .select("*")
-        .order('created_at', { ascending: false })
-        .eq('user_id', user.id)
-
-        if (error){
-            console.log(error);
-            setFetchError('Could not fetch the data');
-        }
-        if(UserEntries){
-            setFetchError('');
-            setUserEntries(UserEntries);
-            setDefaultEntries(UserEntries);
-        }
-
-    }
 
 
     useEffect(() => {
+
+        const fetchEntries = async () => {
+
+            try{
+                let { data: UserEntries, error } = await supabase
+                .from('UserEntries')
+                .select("*")
+                .order('created_at', { ascending: false })
+                .eq('user_id', user.id)
+        
+                if (error){
+                    setFetchError('Could not fetch the data');
+                }
+                if(UserEntries){
+                    setFetchError('');
+                    setUserEntries(UserEntries);
+                    setDefaultEntries(UserEntries);
+                }
+
+            }catch(error){
+                console.log(error);
+                setFetchError('Could not fetch the data');
+            }
+        }
+
         fetchEntries();
     }, []);
+    
 
     const handleDelete = (id) => {
         setUserEntries(prev => {
@@ -53,7 +59,6 @@ export default function EntriesPage() {
     //sorting data
 
     const searchTags = async (e) => {
-
         setUserEntries(prev => {
             return prev.filter(entry => {
                  return entry.tags?.some(tag => tag === query);
@@ -73,9 +78,7 @@ export default function EntriesPage() {
                      return entry.mood === e.target.value;
                 });
             });
-
         }
-        
     }
 
     const showAll = () => {
@@ -126,10 +129,6 @@ export default function EntriesPage() {
                     </FormControl>
 
                 </div>
-
-  
-
-
 
                 <div className='entries__list'>
                     {userEntries.length === 0 && <p>You have no entries yet</p>}

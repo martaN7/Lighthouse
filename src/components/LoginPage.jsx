@@ -1,5 +1,5 @@
-import React,  { useRef, useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React,  { useRef, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TextField } from '@mui/material';
 import { useAuth } from '../components/Auth/Auth';
 
@@ -21,25 +21,24 @@ export default function LoginPage() {
         const password = passwordRef.current.value
         const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-
         if(!email.match(validRegex)){
             setFormError('Invalid e-mail address!');
-        }else {
-            const { user, error } = await signIn({ email, password});
-
-            if (error) {
-              alert('error logging in');
-              console.log(error.message);
-              console.log(error.error_description);
-              console.log(user);
-
-
-            } else {
-              navigateTo('/home');
-              console.log(user.user_metadata.name);
-            }
+            return
         }
 
+        try{
+            const { error } = await signIn({ email, password});
+
+            if (error) {
+                setFormError(error.message || error.error_description);
+            } else {
+                navigateTo('/home');
+            }
+
+        }catch(error){
+            console.log(error);
+            setFormError('Error logging in');
+        }
     }
  
 
@@ -66,6 +65,7 @@ export default function LoginPage() {
                         size='small' sx={{width: '300px'}}
                         inputRef={passwordRef}
                     />
+                    {formError && <div className='new__entry__error'><p>{formError}</p></div>}
                     <button type='submit' className='login__form__button'>
                         Log in
                     </button>

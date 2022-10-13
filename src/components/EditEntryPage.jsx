@@ -160,7 +160,6 @@ const saveMood = (e) => {
       .eq('id', id);
 
       if (data) {
-        console.log(data);
         setEntryError('');
         navigateTo('/home/entries');
       }
@@ -253,7 +252,7 @@ const saveMood = (e) => {
               </ul>
             </div>
 
-            <form className='edit__entry__form'>
+            <form className='edit__entry__form' onSubmit={e => updateEntry(e)}>
               <span>What's on your mind?</span>
 
               <TextField 
@@ -283,7 +282,7 @@ const saveMood = (e) => {
 
               {entryError && <div className='new__entry__error'><p>{entryError}</p></div>}
 
-              <button onClick={e => updateEntry(e)} type='submit' className='edit__entry__form__button'>Save</button>
+              <button type='submit' className='edit__entry__form__button'>Save</button>
             </form>
             
           </div>

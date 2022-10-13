@@ -1,5 +1,5 @@
 import React,  { useRef, useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { TextField } from '@mui/material';
 import { useAuth } from '../components/Auth/Auth';
 import { supabase } from '../database/supabase';
@@ -31,49 +31,60 @@ export default function SignupPage() {
    
         if(!email.match(validRegex)){
             setFormError('Invalid e-mail address!');
-        }else if (password !== passwordConfirm){
+            return
+        }
+        if(password.length < 6){
+            setFormError(`Your password must be min. 6 characters long`);
+            return
+        }
+        if (password !== passwordConfirm){
             setFormError(`Passwords don't match!`);
-        }else if (!email || !password || !passwordConfirm){
+            return
+        }
+        if (!email || !password || !passwordConfirm){
             setFormError('Please fill in all fields correctly');
-        }else {
-            const { user, error } = await signUp({ email, password});
-            if (error) {
-              alert('error signing in');
-              console.log(error.message);
-              console.log(error.error_description);
-        
-        
-            } else {
-              setNewUser(user);
-              console.log(user);
-              
-            }
-
+            return
         }
 
+        try{
+            const { user, error } = await signUp({ email, password});
+            if (error) {
+                setFormError(`Error signing up  
+                ${error.message || error.error_description}`);
+                console.log(error.message || error.error_description);
+
+            } else {
+                setNewUser(user);
+                setFormError(null);
+            }
+
+        }catch(error){
+            setFormError(error.message || error.error_description);
+        }
       }
 
-      const addUserName = async () => {
+      const addUserName = async (e) => {
+        e.preventDefault();
 
         const userName = nameRef.current.value;
 
         if (userName.length < 2){
             setFormError('Username too short!');
-            console.log(formError);
             return
         }
 
-        const { user, error } = await supabase.auth.update({ data: {name: userName}});
-        if (error) {
-          alert('error with name');
-          console.log(error.message);
-          console.log(error.error_description);
-        } 
-        
-        if (user) {
-          navigateTo('/home');
-          console.log(user);
-          console.log(user.user_metadata.name);
+        try{
+            const { user, error } = await supabase.auth.update({ data: {name: userName}});
+            if (error) {
+                setFormError('Error sending name');
+            } 
+            
+            if (user) {
+            navigateTo('/home');
+            }
+
+        }catch(error){
+            setFormError(error.message || error.error_description);
         }
 
       }
@@ -92,6 +103,7 @@ export default function SignupPage() {
                                     size='small' sx={{width: '300px'}}
                                     inputRef={nameRef}
                             />
+                            {formError && <div className='new__entry__error'><p>{formError}</p></div>}
                             <button type='submit' className='signup__form__button'>
                                     Save
                             </button>
@@ -112,15 +124,7 @@ export default function SignupPage() {
             </div>
             <div className='signup__form'>
                 <h1 className='signup__form__title'>Start your journey!</h1>
-                <form className='signup__form__container' onSubmit={handleSignUp}>
-                    {/* <TextField 
-                        id="sign-up__user-name" label="Name" 
-                        variant="outlined" margin='normal'
-                        helperText = 'Enter your name'
-                        size='small' sx={{width: '300px'}}
-                        inputRef={nameRef}
-
-                    /> */}
+                <form className='signup__form__container' onSubmit={e=>handleSignUp(e)}>
 
                     <TextField 
                         id="sign-up__email" label="E-mail" 
@@ -148,7 +152,7 @@ export default function SignupPage() {
                     <button type='submit' className='signup__form__button'>
                         Sign up!
                     </button>
-                    {formError && <p className='signup__display__error'>{formError}</p>}
+                    {formError && <div className='new__entry__error'><p>{formError}</p></div>}
                 </form>                
             </div>
         </div>

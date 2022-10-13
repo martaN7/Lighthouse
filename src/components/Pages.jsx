@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet, Route, Routes, Navigate } from 'react-router-dom';
+import { Link, Route, Routes, Navigate } from 'react-router-dom';
 import Navigation from './Navigation';
 import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
@@ -10,7 +10,7 @@ import EditEntryPage from './EditEntryPage';
 import SingleEntryPage from './SingleEntryPage';
 import StatsPage from './StatsPage';
 import NotFoundPage from './NotFoundPage';
-
+import UserAccount from './UserAccount';
 import ProtectedRoute from '../components/Auth/ProtectedRoute';
 
 
@@ -109,6 +109,7 @@ export default function Pages() {
               <Route path="entry/:id" element={<SingleEntry />} />
               <Route path="entries" element={<Entries />} />
               <Route path="stats" element={<Statistics />} />
+              <Route path="account/:userId" element={<UserAccount />} />
             </Route>
           </Route>
         <Route path="*" element={<Navigate replace to="/404" />} />

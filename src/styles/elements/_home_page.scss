@@ -1,8 +1,8 @@
 .home__page {
     height: calc(100vh - 110px);
-    margin-top: 20px;
-    background: no-repeat center url(../home4.png);
-    background-size: 43%;
+    margin-top: 20px;    
+    background: url('../think2.png') right 35px top 25px / 20%,url('../think1.png') bottom 25px left 35px / 20%, url('../bg_home.png') center/30% ;
+    background-repeat: no-repeat;
 
     &__container {
         display: flex;
@@ -22,7 +22,7 @@
         font-family: $font-logo;
         font-size: 4rem;
         line-height: 6rem;
-        color: #fff;
+        color: $color-navy-blue;
         margin-bottom: 30px;
     }
 

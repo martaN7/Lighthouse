@@ -17,19 +17,26 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding-left: 20px;
     
 
     &__img {
         height: 4.5rem;
-        position: absolute;
-        bottom: -19px;
-        left: 600px;
+
+
+        &__box {
+            position: absolute;
+            bottom: -19px;
+            left: 50%;
+
+        }
     }
 
     &__right{
         display: flex;
         align-items: center;
         position: relative;
+        padding-right: 10px;
     }
 }
 
@@ -41,6 +48,10 @@
 
     &:hover {
         color: $color-yellow-logo;
+    }
+
+    &:focus {
+        outline: none;
     }
     
     &__logo {
@@ -57,17 +68,15 @@
 
 .nav__user {
     color: #fff;
+    display: inline-block;
     position: relative;
-    // padding-left: 30px;
+    padding: 0 20px;
 
     &:hover {
         cursor: pointer;
 
         & .nav__user__dropdown {
             display: block;
-            position: absolute;
-            top: 100%;
-            left: -35px;
         }
 
         & .nav__user__dropdown .nav__user__options {
@@ -77,14 +86,14 @@
     }
 
     &__container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        display: inline-block;
+        text-align: center;
     }
 
     &__icon {
         font-size: 1.5rem;
+        display: block;
+        padding-bottom: 10px;
     }
 
     &__name {
@@ -93,16 +102,19 @@
 
     &__dropdown {
         display: none;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 1;
     }
 
     &__options {
+        position: relative;
+        display: none;
         background-color: $color-navy-blue;
         box-shadow: 0 1px 10px rgba($color: rgb(3, 3, 3), $alpha: 0.5);
     
-        &:hover {
-            cursor: pointer;
-            background-color: #053a77;
-        }
+
     }
 
     &__option {
@@ -110,10 +122,16 @@
         width: 100px;
         padding: 10px;
         text-align: center;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #053a77;
+        }
     }
 
     &__link {        
         color: #fff;
         font-size: 1.1rem;
+        text-decoration: none;
     }
 }

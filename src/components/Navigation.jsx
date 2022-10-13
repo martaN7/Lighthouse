@@ -5,19 +5,24 @@ import { useAuth } from '../components/Auth/Auth';
 export default function Navigation() {
 
     // Get current user and signOut function from context
-   const { user, signOut } = useAuth()
+   const { user, signOut } = useAuth();
    const navigateTo = useNavigate();
    const userName = user?.user_metadata.name;
 
 
   async function handleSignOut() {
      // Ends user session
-     await signOut();
+     try {
+        const { error } = await signOut();
+        if(error){
+            throw error;
+        }
+     }catch(error){
+        throw error;
+     }
 
      // Redirects the user to Login page
      navigateTo('/');
-     console.log('wylogowano');
-     console.log(user);
   }
 
 
@@ -31,7 +36,7 @@ export default function Navigation() {
                     <li>
                         <Link to="/home" className='nav__link__logo'>Lighthouse</Link>
                     </li>
-                    <li>
+                    <li className='nav__links__img__box'>
                         <img src='../lighthouse.png' className='nav__links__img'/>
                     </li>
                     {userName && (
@@ -51,11 +56,17 @@ export default function Navigation() {
                             
                             <div className='nav__user__dropdown'>
                                 <ul className='nav__user__options'>
+                                    <li className='nav__user__option'>
+                                        <Link to={'/home/account/' + user.id} className='nav__user__link'>
+                                            Account
+                                        </Link>
+                                    </li>
                                     <li className='nav__user__option' onClick={handleSignOut}>
-                                        <span to="/" className='nav__user__link'>
+                                        <span className='nav__user__link'>
                                             Log out
                                         </span>
                                     </li>
+                                    
                                 </ul>
                             </div>
                         </li>

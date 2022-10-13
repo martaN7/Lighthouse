@@ -146,7 +146,6 @@ export default function NewEntryPage() {
       }
       if(error){
         setEntryError('Problem saving entry');
-        console.log(error);
       }
 
     }catch(error){
@@ -154,9 +153,6 @@ export default function NewEntryPage() {
     }
   }
 
-
-
-  
 
   return (
     <section className='new__entry'>
