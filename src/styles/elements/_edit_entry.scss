@@ -94,23 +94,23 @@
             }
 
             & .mood__button__amazing {
-                background-color:#0CB1FF;
+                background-color:$color-mood-amazing;
             }
 
             & .mood__button__good {
-                background-color:#007DB8;
+                background-color:$color-mood-good;;
             }
 
             & .mood__button__meh {
-                background-color:#5C7B8A;
+                background-color:$color-mood-meh;
             }
 
             & .mood__button__bad {
-                background-color:#36505B;
+                background-color:$color-mood-bad;
             }
 
             & .mood__button__awful {
-                background-color:#282828;
+                background-color:$color-mood-awful;
             }
         }
       
@@ -119,23 +119,23 @@
     .emoji {
 
         &__amazing {
-            color: #0CB1FF;
+            color: $color-mood-amazing;
         }
 
         &__good{
-            color: #007DB8;
+            color: $color-mood-good;
         }
 
         &__meh{
-            color: #5C7B8A;
+            color: $color-mood-meh;
         }
 
         &__bad{
-            color: #36505B;
+            color: $color-mood-bad;
         }
 
         &__awful{
-            color: #282828;
+            color:$color-mood-awful;
         }
 
         &__clicked {
