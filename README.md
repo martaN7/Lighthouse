@@ -2,7 +2,7 @@
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="./LICENSE" target="_blank">
-    <img alt="License: GNU GPLv3" src="https://img.shields.io/badge/License-GNU GPL-3.0-yellow.svg" />
+    <img alt="License: GNU GPLv3" src="https://img.shields.io/badge/License-GNU GPL3.0-yellow.svg" />
   </a>
 </p>
 <img src="public/app_screenshots/readme1.png" alt="lighthouse logo">
