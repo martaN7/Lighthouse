@@ -2,7 +2,7 @@
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="./LICENSE" target="_blank">
-    <img alt="License: GNU GPLv3" src="https://img.shields.io/badge/License-lo-yellow.svg" />
+    <img alt="License: GNU GPLv3" src="https://img.shields.io/badge/License-GNU GPLv3-yellow.svg" />
   </a>
 </p>
 <img src="public/app_screenshots/readme1.png" alt="lighthouse logo">
@@ -14,25 +14,25 @@
 <br/>
 
 ### Dashboard
-<img src="public/app_screenshots/readme2.png" alt="app dashboard" width="700" />
-<br/><br/>
+<img src="public/app_screenshots/readme2.png" alt="app dashboard" width="900" />
+<br/>
 
 ### Features:
 - create and manage personal account
 <br/><br/>
-<img src="public/app_screenshots/readme8.png" alt="app login" width="500" />
-<br/><br/>
+<img src="public/app_screenshots/readme8.png" alt="app login" width="600" />
+<br/>
 - create entries and mark them with your mood and tags
 <br/><br/>
-<img src="public/app_screenshots/readme4.png" alt="app entry editor" width="300" /> <img src="public/app_screenshots/readme6.png" alt="app entry page" height="265">
-<br/><br/>
+<img src="public/app_screenshots/readme4.png" alt="app entry editor" width="500" /> <img src="public/app_screenshots/readme6.png" alt="app entry page" width="500">
+<br/>
 - display your entries and sort by specific tags and mood
 <br/><br/>
-<img src="public/app_screenshots/readme5.png" alt="app entries page" width="500" />
-<br/><br/>
+<img src="public/app_screenshots/readme5.png" alt="app entries page" width="700" />
+<br/>
 - see the total number of entries and your mood stats for current month
 <br/><br/>
-<img src="public/app_screenshots/readme7.png" alt="app stats page" width="500" />
+<img src="public/app_screenshots/readme7.png" alt="app stats page" width="700" />
 
 ***
 ## Built With
