@@ -15,24 +15,23 @@
 
 ### Dashboard
 <img src="public/app_screenshots/readme2.png" alt="app dashboard" width="900" />
-<br/>
 
 ### Features:
 - create and manage personal account
 <br/><br/>
-<img src="public/app_screenshots/readme8.png" alt="app login" width="600" />
+<img src="public/app_screenshots/readme8.png" alt="app login" width="700" />
 <br/>
 - create entries and mark them with your mood and tags
 <br/><br/>
-<img src="public/app_screenshots/readme4.png" alt="app entry editor" width="500" /> <img src="public/app_screenshots/readme6.png" alt="app entry page" width="500">
+<img src="public/app_screenshots/readme4.png" alt="app entry editor" width="600" /> <img src="public/app_screenshots/readme6.png" alt="app entry page" width="600">
 <br/>
 - display your entries and sort by specific tags and mood
 <br/><br/>
-<img src="public/app_screenshots/readme5.png" alt="app entries page" width="700" />
+<img src="public/app_screenshots/readme5.png" alt="app entries page" width="800" />
 <br/>
 - see the total number of entries and your mood stats for current month
 <br/><br/>
-<img src="public/app_screenshots/readme7.png" alt="app stats page" width="700" />
+<img src="public/app_screenshots/readme7.png" alt="app stats page" width="800" />
 
 ***
 ## Built With
