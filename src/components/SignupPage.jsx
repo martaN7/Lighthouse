@@ -120,7 +120,7 @@ export default function SignupPage() {
     <div className='container'>
         <div className='signup__page__container'>
             <div className='signup__page__img'>
-                <img src='../work2.png'/>
+                <img src='../work2.png' alt='man with laptop on a rock'/>
             </div>
             <div className='signup__form'>
                 <h1 className='signup__form__title'>Start your journey!</h1>

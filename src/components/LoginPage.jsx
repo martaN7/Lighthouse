@@ -46,7 +46,7 @@ export default function LoginPage() {
     <div className='container'>
         <div className='login__page__container'>
             <div className='login__page__img'>
-                <img src='../notebook.png'/>
+                <img src='../notebook.png' alt='notebook and glasses'/>
             </div>
             <div className='login__form'>
                 <h1 className='login__form__title'>It's good to see you again!</h1>
