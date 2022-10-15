@@ -2,7 +2,9 @@
     height: calc(100vh - 110px);
     margin-top: 20px;
     background: no-repeat center url(../home3.png);
-    background-size: 40%;
+    background-size: contain;
+
+
 
     &__container {
         display: flex;
@@ -13,9 +15,8 @@
 
     &__title {
         font-family: $font-logo;
-        font-size: 5rem;
+        font-size: 6rem;
         color: #ffff;
-        margin-top: -130px;
     }
 
     &__buttons {

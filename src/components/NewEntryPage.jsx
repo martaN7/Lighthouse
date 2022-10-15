@@ -99,7 +99,7 @@ export default function NewEntryPage() {
 
   //handle date info
   const date = new Date ();
-  let createdDate = date.toLocaleDateString();
+  let createdDate = date.toISOString().slice(0,10);
   let dayNumber = date.getDate();
 
   const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
