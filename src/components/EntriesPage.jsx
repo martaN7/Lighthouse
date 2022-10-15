@@ -58,10 +58,19 @@ export default function EntriesPage() {
 
     //sorting data
 
+    const newQuery = (e) => {
+        setUserEntries(defaultEntries);
+        setQuery(e.target.value);
+    }
+
     const searchTags = async (e) => {
+        setUserEntries(defaultEntries);
+        if(query === ''){
+            setUserEntries(defaultEntries);
+        }
         setUserEntries(prev => {
             return prev.filter(entry => {
-                 return entry.tags?.some(tag => tag === query);
+                 return entry.tags?.some(tag => tag.includes(query));
             });
         });
         setQuery('');
@@ -104,7 +113,7 @@ export default function EntriesPage() {
                             variant="outlined" margin='normal'
                             size='small' sx={{width: '250px'}}
                             value={query}
-                            onChange={e => setQuery(e.target.value)}
+                            onChange={e => newQuery(e)}
                             onKeyUp={e => e.key === "Enter" ? searchTags(e) : null}
                     />
 

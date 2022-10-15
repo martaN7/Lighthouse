@@ -149,10 +149,10 @@ export default function SignupPage() {
                         size='small' sx={{width: '300px'}}
                         inputRef={passwordConfirmRef}
                     />
+                    {formError && <div className='new__entry__error'><p>{formError}</p></div>}
                     <button type='submit' className='signup__form__button'>
                         Sign up!
                     </button>
-                    {formError && <div className='new__entry__error'><p>{formError}</p></div>}
                 </form>                
             </div>
         </div>
